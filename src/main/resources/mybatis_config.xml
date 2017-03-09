@@ -12,13 +12,13 @@
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.jdbc.Driver" />
 				<property name="url" value="jdbc:mysql://localhost/mybatis" />
-				<property name="username" value="$user_mybatis" />
+				<property name="username" value="user_mybatis" />
 				<property name="password" value="rootroot" />
 			</dataSource>
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="kr/or/dgit/mybatis_study_luuzun/mapper/StudentMapper" />
+		<mapper resource="kr/or/dgit/mybatis_study_luuzun/mappers/StudentMapper.xml" />
 	</mappers>
 </configuration>
 
