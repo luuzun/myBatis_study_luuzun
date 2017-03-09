@@ -6,4 +6,9 @@
 	<select id="selectStudentByAll" resultType="Student">
 		select stud_id, name, email, dob from student
 	</select>
+	
+	<insert id="insertStudent" parameterType="Student">
+		insert into student (stud_id, name, email, dob) 
+		values(#{studId}, #{name}, #{email}, #{dob})
+	</insert>
 </mapper>
