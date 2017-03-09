@@ -18,3 +18,5 @@
 		<mapper resource="org/mybatis/example/BlogMapper.xml" />
 	</mappers>
 </configuration>
+
+<!--teacher Git Addr: https://github.com/DaeguIT-MinSuKim/mybatis_study_teacher.git -->
