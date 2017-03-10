@@ -8,13 +8,14 @@ import kr.or.dgit.mybatis_study_luuzun.dao.StudentDao;
 import kr.or.dgit.mybatis_study_luuzun.dto.Student;
 import kr.or.dgit.mybatis_study_luuzun.util.MybatisSqlSessionFactory;
 
-public class StudentService {
+public class StudentService implements StudentDao{
 	private static final StudentService instance= new StudentService();
 	public static StudentService getInstance(){
 		return instance;
 	}
 	private StudentService() {};
 	
+	@Override
 	public List<Student> selectStudentByAll(){
 		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
 		StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
@@ -22,11 +23,19 @@ public class StudentService {
 		return studentDao.selectStudentByAll();
 	}
 	
+	@Override
 	public int insertStudent(Student student){
 		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
 		StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
 		int res = studentDao.insertStudent(student);
 		sqlSession.commit();
 		return res;
+	}
+	
+	@Override
+	public Student selectStudentByNo(int studNo) {
+		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
+		StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+		return studentDao.selectStudentByNo(studNo);
 	}
 }
