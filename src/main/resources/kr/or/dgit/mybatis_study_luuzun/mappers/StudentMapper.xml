@@ -17,4 +17,8 @@
 		where stud_id = #{studId}
 	</select>
 	
+	<insert id="insertStudentWithPhone" parameterType="Student">
+		insert into student (stud_id, name, email, dob, phone) 
+		values(#{studId}, #{name}, #{email}, #{dob}, #{phone})
+	</insert>
 </mapper>

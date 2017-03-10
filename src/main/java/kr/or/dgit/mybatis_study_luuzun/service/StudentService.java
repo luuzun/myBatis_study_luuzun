@@ -38,4 +38,17 @@ public class StudentService implements StudentDao{
 		StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
 		return studentDao.selectStudentByNo(studNo);
 	}
+	
+	@Override
+	public int insertStudentWithPhone(Student student) {
+		int res = -1;
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession();){
+			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			res = studentDao.insertStudentWithPhone(student);
+			sqlSession.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
 }

@@ -6,8 +6,18 @@ public class Student {
 	private String name;
 	private String email;
 	private Date dob;
+	private PhoneNumber phone;
 	
 	public Student() {}
+
+	public Student(int studId, String name, String email, Date dob, PhoneNumber phone) {
+		super();
+		this.studId = studId;
+		this.name = name;
+		this.email = email;
+		this.dob = dob;
+		this.phone = phone;
+	}
 
 	public Student(int studId, String name, String email, Date dob) {
 		this.studId = studId;
@@ -15,7 +25,13 @@ public class Student {
 		this.email = email;
 		this.dob = dob;
 	}
-	
+
+	public PhoneNumber getPhone() {
+		return phone;
+	}
+	public void setPhone(PhoneNumber phone) {
+		this.phone = phone;
+	}
 	public int getStudId() {
 		return studId;
 	}
@@ -43,6 +59,6 @@ public class Student {
 	
 	@Override
 	public String toString() {
-		return String.format("%s, %s, %s, %s]", studId, name, email, dob);
+		return String.format("%s, %s, %s, %s, %s", studId, name, email, dob, phone);
 	}
 }

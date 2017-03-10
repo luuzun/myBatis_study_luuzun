@@ -8,4 +8,6 @@ public interface StudentDao {
 	int insertStudent(Student student);
 	List<Student> selectStudentByAll();
 	Student selectStudentByNo(int studNo);
+
+	int insertStudentWithPhone(Student student); //typehandler Ex
 }

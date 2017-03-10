@@ -8,6 +8,7 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import kr.or.dgit.mybatis_study_luuzun.dto.PhoneNumber;
 import kr.or.dgit.mybatis_study_luuzun.dto.Student;
 import kr.or.dgit.mybatis_study_luuzun.service.StudentService;
 
@@ -44,5 +45,12 @@ public class StudentDaoTest {
 		Student student = studentService.selectStudentByNo(2);
 		System.out.println(student);
 		Assert.assertNotNull(student);
+	}
+	
+	@Test
+	public void testInsertStudentWithPhone() {
+		Student student = new Student(11, "이교민", "jsw@test.co.kr", new Date(), new PhoneNumber("010-222-222"));
+		int res = studentService.insertStudentWithPhone(student);
+		Assert.assertEquals(1, res);
 	}
 }

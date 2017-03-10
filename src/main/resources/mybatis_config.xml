@@ -3,17 +3,23 @@
  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<properties resource="application.properties" />
 	<typeAliases>
-		<typeAlias type="kr.or.dgit.mybatis_study_luuzun.dto.Student" alias="Student"/>
+		<!-- <typeAlias type="kr.or.dgit.mybatis_study_luuzun.dto.Student" alias="Student"/>
+		<typeAlias type="kr.or.dgit.mybatis_study_luuzun.dto.Department" alias="Department"/> -->
+		<package name = "kr.or.dgit.mybatis_study_luuzun.dto" />
 	</typeAliases>
+	<typeHandlers>
+		<package name = "kr.or.dgit.mybatis_study_luuzun.typehandlers" />
+	</typeHandlers>
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
-				<property name="driver" value="com.mysql.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://localhost/mybatis" />
-				<property name="username" value="user_mybatis" />
-				<property name="password" value="rootroot" />
+				<property name="url" value="${url}" />
+				<property name="driver" value="${driver}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
 			</dataSource>
 		</environment>
 	</environments>
